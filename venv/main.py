@@ -1,0 +1,1 @@
+#plik main.py z funkcją main, która wyświetala menu na ekranie,
