@@ -1,5 +1,5 @@
 
-class NumberValidator():
+class NumberValidator():            #sprawdza czy ma cyfry od 0-9
     def __init__(self, text) -> None:
         self.text = text
 
@@ -9,13 +9,6 @@ class NumberValidator():
                 return True
 
         return False
-
-class LetterValidator():
-    def __init__(self, text) -> None:
-        self.text = text
-
-    def is_valid(self):
-        pass
 
 class LengthValidator():
     def __init__(self, text, length=10) -> None:
@@ -47,3 +40,21 @@ class SpecialCharactersValidator():
 #        return False
                 #2 wersja
 #        return any([not char.isalnum() for char in self.text])
+
+class TextValidator():
+    def __init__(self,input) -> None:
+        self.input = input
+        self.validators = [
+            LengthValidator,
+            NumberValidator,
+            SpecialCharactersValidator
+        ]
+    def is_valid(self):
+        for class_name in self.validators:
+            validator = class_name(self.input)
+            if validator.is_valid() is False:
+                return False
+        return True
+
+text = TextValidator('l1l!567890')
+print(text.is_valid())
