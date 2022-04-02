@@ -1,15 +1,16 @@
 
 #plik menu.py z klasami Menu oraz MenuCommand, ExitCommand
 
-events = {}
+events = []
 
 class Menu:
 
     def menu():
-        print("1. New event\n"
+        print("\nMenu\n======\n"
+              "1. New event\n"
               "2. List calendar\n"
               "3. Export calendar to iCalendar\n"
-              "4. Exit")
+              "4. Exit\n")
 
     menu()
 
@@ -23,7 +24,7 @@ class Menu:
     def listCalendar():
         for title in events:
             date_time = events[title]
-            print('Title:', title, '\nDate:', date_time)
+            print('\nEvents\n======\n','Title:', title, '\nDate:', date_time,'\n')
 
     option = int(input("Enter your option: "))
 
